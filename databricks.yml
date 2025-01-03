@@ -16,6 +16,9 @@ targets:
     default: true
     workspace:
       host: https://adb-3286402577411082.2.azuredatabricks.net
+    variables:
+      warehouse_id: 5866794ff3870e1d
+      catalog: Molina_EIM_Lab_WS
 
   prod:
     mode: production
@@ -28,3 +31,17 @@ targets:
         level: CAN_MANAGE
     run_as:
       user_name: goutham.sudini@molinahealthcarelab.onmicrosoft.com
+    bundle: # Required.
+      git:
+        origin_url: https://github.com/sudinigoutham/Synthea_Datamodel.git
+        branch: system #this assumes the trunk approach to deployments
+  
+variables:
+  warehouse_id: 
+    description: A Databricks SQL Warehouse ID to Use for SQL Notebooks or Files
+    default: 5866794ff3870e1d
+  
+  catalog:
+    description: Unity Catalog to use
+    default: Molina_EIM_Lab_WS
+
