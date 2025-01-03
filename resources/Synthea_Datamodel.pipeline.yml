@@ -1,0 +1,13 @@
+# The main pipeline for Synthea_Datamodel
+resources:
+  pipelines:
+    Synthea_Datamodel_pipeline:
+      name: Synthea_Datamodel_pipeline
+      catalog: molina_eim_lab_ws
+      target: Synthea_Datamodel_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
